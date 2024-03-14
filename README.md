@@ -11,9 +11,9 @@ This repository contains the official PyTorch implementation of the paper: “Le
 ## Installation
 For the ease of reproducibility, you are suggested to install miniconda (or anaconda if you prefer) before following executing the following commands.
 
-`git clone https://github.com 
+`git clone https://github.com/Qiuben/EvLSD-IED`
 
-cd EvLSD-IED`
+`cd EvLSD-IED`
 
 
 ## Testing Pre-trained Models
