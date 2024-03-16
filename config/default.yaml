@@ -1,0 +1,104 @@
+# General configurations
+gpu: 0
+seed: 0
+config_path: ''
+config_file: ''
+notify: False
+
+# Dataset configurations
+dataset_path: '/home/lihao/data2'
+dataset_name: 'e-wireframe'   #e-wireframe
+image_size: [512, 512]
+heatmap_size: [128, 128]
+mean: [0.43031373, 0.40718431, 0.38698431]
+std: [0.08735294, 0.08676078, 0.09109412]
+
+# Train configurations
+log_path: 'log'
+num_workers: 4
+lr: 0.0004
+weight_decay: 0.0001
+step_size: 25
+num_epochs: 30
+last_epoch: -1
+train_batch_size: 4
+test_batch_size: 1
+print_freq: 500
+save_freq: 1
+loss_weights: {
+  'loss_md': 1.0,  # angle regression
+  'loss_dis': 1.0,  # dis   regression
+  'loss_res': 1.0,  # residual regression
+  'loss_joff': 0.25,  # joff  regression
+  'loss_jloc': 8.0,  # jloc  classification
+  'loss_pos': 1.0,  # pos   classification
+  'loss_neg': 1.0  # neg   classification
+}
+
+# test configurations
+output_path: 'output'
+figure_path: 'figure'
+save_image: False
+with_clear: False
+save_line: True
+evaluate: False
+score_thresh: 0.98
+
+# Network configurations
+model_path: 'model'
+model_name: 'student_EA.pkl' # default: version.pkl
+
+
+
+
+# Backbone
+backbone: stacked_hourglass
+depth: 4
+num_stacks: 1 #original  2
+num_blocks: 1
+inplanes: 64
+num_feats: 256
+head_size: [3, 1, 1, 2, 2]
+
+# HAFM
+dis_th: 5
+ang_th: 0.1
+n_stc_posl: 300
+n_stc_negl: 40
+
+# Detector
+n_dyn_junc: 300
+junc_thresh: 0.008
+n_dyn_posl: 300
+n_dyn_negl: 300
+n_pts0: 32
+n_pts1: 8
+dim_loi: 128
+dim_fc: 1024
+use_residual: True
+
+# Homography adaptation configuration
+homography_adaptation:
+    num_iter: 10
+    valid_border_margin: 0
+    min_counts: 30
+    homographies:
+        translation: True
+        rotation: True
+        scaling: False
+        perspective: False
+        scaling_amplitude: 0.5
+        perspective_amplitude_x: 0.2
+        perspective_amplitude_y: 0.2
+        allow_artifacts: True
+        patch_ratio: 0.85
+
+# SSL configuration
+consistency_rampup: 6 #0.1 0.5  1  2  4
+ema_decay: 0.999
+
+# export pseudo label
+pseudo_label_threshod: 0.9
+# export homo_augmented label
+export_threshold: 0.94
+export_threshold_homo : 0.85
