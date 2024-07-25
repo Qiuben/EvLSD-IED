@@ -1,5 +1,5 @@
-# Learning to Detect Line Segment from Events
-This repository contains the official PyTorch implementation of the paper: “Learning to Detect Line Segment from Events”
+# EvLSD-IED: Event-Based Line Segment Detection with Image-to-Event Distillation
+This repository contains the official PyTorch implementation of the paper: “EvLSD-IED: Event-Based Line Segment Detection with Image-to-Event Distillation”
 
 ## Table of Contents
 - [Installation](#installatuion)
