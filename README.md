@@ -9,7 +9,7 @@ This repository contains the official PyTorch implementation of the paper: “Le
 
 
 ## Installation
-We have trained and tested our models on CUDA 11.1, Python 3.8.0， torch 1.10.1.
+We have trained and tested our models on CUDA 11.1, Python 3.8.0, torch 1.10.1.
 
 For ease of reproducibility, you are suggested to install miniconda (or anaconda if you prefer) before following executing the following commands.
 
