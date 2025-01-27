@@ -130,8 +130,8 @@ if __name__ == '__main__':
     device = torch.device(f'cuda:{cfg.gpu}' if use_gpu else 'cpu')
 
     # Load model
-    model = WireframeDetector(cfg).to(device)
-    model_filename = 'model/ft_homo_0.98.pkl'
+    model = WireframeDetector(cfg, backbone_in_channels= 10).to(device)
+    model_filename = os.path.join(cfg.model_path, cfg.model_name)
 
     checkpoint = torch.load(model_filename, map_location=device)
     if 'model' in checkpoint.keys():
