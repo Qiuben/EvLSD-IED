@@ -111,7 +111,7 @@ def test(model, loader, cfg, device):
 
     print(f'FPS: {len(loader) / (end - start):.1f}')
 
-    gt_file = os.path.join(cfg.dataset_path, 'E-WHU/test.json')
+    gt_file = os.path.join(cfg.dataset_path, 'test.json')
     pred_file = os.path.join(cfg.output_path, 'result.json')
     mAPJ, P, R = eval_mAPJ(gt_file, pred_file)
     msAP, P, R, sAP = eval_sAP(gt_file, pred_file, cfg)
