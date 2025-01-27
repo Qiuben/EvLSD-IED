@@ -67,10 +67,9 @@ class Hourglass(nn.Module):
 
 
 class HourglassNet(nn.Module):
-    def __init__(self, use_cbam ,use_se, res_block, head_block, in_channels, inplanes, num_feats, depth, num_stacks, num_blocks, num_classes):
+    def __init__(self, use_cbam , res_block, head_block, in_channels, inplanes, num_feats, depth, num_stacks, num_blocks, num_classes):
         super().__init__()
         self.use_cbam = use_cbam
-        self.use_se = use_se
         self.num_stacks = num_stacks
 
         # Shallow feature extraction and modulations
