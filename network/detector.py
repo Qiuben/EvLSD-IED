@@ -121,7 +121,7 @@ class WireframeDetector(nn.Module):
 
     @torch.no_grad()
     def forward_test(self, images, annotations):
-        outputs, features, encoder_out_depth3 = self.backbone(images)
+        outputs, features = self.backbone(images)
 
         loi_features = self.conv(features)
 
@@ -194,7 +194,7 @@ class WireframeDetector(nn.Module):
 
             results.append(result)
 
-        return results, features, encoder_out_depth3
+        return results, features
         # return output
     
     def forward_train(self, images, annotations):
@@ -202,7 +202,7 @@ class WireframeDetector(nn.Module):
         device = images.device
 
         targets, metas = self.hafm_encoder(annotations)
-        outputs, features, encoder_out_depth3 = self.backbone(images) # features 是128×128的特征图
+        outputs, features = self.backbone(images) # features 是128×128的特征图
 
         ######################## 可视化特征图 ########################
         # feat_vis = features[0]  # 256, 128, 128
@@ -340,7 +340,7 @@ class WireframeDetector(nn.Module):
             loss_dict['loss_pos'] += loss_positive / batch_size
             loss_dict['loss_neg'] += loss_negative / batch_size  #这里的loss_negative是0吗？ 
 
-        return loss_dict, labels, batch_lines, batch_scores, output, features, mask, encoder_out_depth3
+        return loss_dict, labels, batch_lines, batch_scores, output, features, mask
 
     def proposal_lines(self, md_maps, dis_maps, residual_maps, scale):
         """
