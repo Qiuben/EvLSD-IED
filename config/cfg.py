@@ -43,6 +43,7 @@ def parse():
 
 
     cfg.log_path = f'{cfg.log_path}'
+    cfg.dataset_path = os.path.join(cfg.dataset_path, cfg.dataset_name)
     cfg.output_path = os.path.join(cfg.output_path, f'{os.path.splitext(cfg.model_name)[0]}')
     cfg.figure_path = os.path.join(cfg.figure_path)
 
