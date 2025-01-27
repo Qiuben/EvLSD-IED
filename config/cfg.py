@@ -17,6 +17,7 @@ def parse():
     parser.add_argument('-e', '--evaluate', action='store_true', help='evaluate')
     parser.add_argument('-m', '--model_name', type=str, help='model name')
     parser.add_argument('-i', '--input_modal', type=int, help='input modal')
+    parser.add_argument('-d', '--dataset_name', type= str, help='dataset name')
     
     parser.add_argument('--config_path', type=str, default='config', help='config path')
     parser.add_argument('--config_file', type=str, default='default.yaml', help='config filename')
