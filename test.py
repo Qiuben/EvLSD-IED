@@ -129,8 +129,14 @@ if __name__ == '__main__':
     use_gpu = cfg.gpu >= 0 and torch.cuda.is_available()
     device = torch.device(f'cuda:{cfg.gpu}' if use_gpu else 'cpu')
 
+    modal = cfg.modal
+
     # Load model
-    model = WireframeDetector(cfg, backbone_in_channels= 10).to(device)
+    if modal == 'RGB':
+        model = WireframeDetector(cfg, backbone_in_channels = 3).to(device)
+    else:
+        model = WireframeDetector(cfg, backbone_in_channels = 10).to(device)
+  
     model_filename = os.path.join(cfg.model_path, cfg.model_name)
 
     checkpoint = torch.load(model_filename, map_location=device)
