@@ -6,7 +6,7 @@ config_file: ''
 notify: False
 
 # Dataset configurations
-dataset_path: '/home/lihao/data2'
+dataset_path: '/data/xinya'
 dataset_name: 'e-wireframe'   #e-wireframe
 image_size: [512, 512]
 heatmap_size: [128, 128]
