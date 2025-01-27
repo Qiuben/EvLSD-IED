@@ -48,7 +48,8 @@ score_thresh: 0.98
 model_path: 'model'
 model_name: 'student_EA.pkl' # default: version.pkl
 
-
+# modal
+modal: event
 
 
 # Backbone
