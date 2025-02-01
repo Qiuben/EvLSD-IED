@@ -235,9 +235,8 @@ if __name__ == '__main__':
         'test_batch_size': cfg.test_batch_size # 8
     }
 
-    wandb.init(project='EvLDF-IED',
+    wandb.init(project='EvLSD-IED',
            name = 'exp1', 
-           group = 'abalation',
            config = config)
     
     # Use GPU or CPU
