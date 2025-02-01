@@ -222,7 +222,6 @@ def train(model, loader, cfg, device):
 
 
 if __name__ == '__main__':
-    os.environ["WANDB_API_KEY"] = '43d81c680e2727082f8588d0d76d494f0f6d7e0f'
 
     # Parameter
     cfg = parse()
