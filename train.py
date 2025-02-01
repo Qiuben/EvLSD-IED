@@ -235,9 +235,9 @@ if __name__ == '__main__':
         'test_batch_size': cfg.test_batch_size # 8
     }
 
-    wandb.init(project='event-HAWP',
-           name = 'add(train 3k, in_channels = 16)', 
-           group = 'folding layer',
+    wandb.init(project='EvLDF-IED',
+           name = 'exp1', 
+           group = 'abalation',
            config = config)
     
     # Use GPU or CPU
@@ -253,9 +253,12 @@ if __name__ == '__main__':
     torch.backends.cudnn.deterministic = False
     if use_gpu:
         torch.cuda.manual_seed_all(cfg.seed)
-
+        
     # Load model
-    model = WireframeDetector(cfg).to(device)
+    if cfg.modal == 'event':
+        model = WireframeDetector(cfg, backbone_in_channels = 10).to(device)
+    else:
+        model = WireframeDetector(cfg, backbone_in_channels = 3).to(device)
  
     # Load dataset
     train_dataset = Dataset(cfg, split='train', mode='train', dataset='e-wireframe')
