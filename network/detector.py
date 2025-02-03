@@ -340,7 +340,7 @@ class WireframeDetector(nn.Module):
             loss_dict['loss_pos'] += loss_positive / batch_size
             loss_dict['loss_neg'] += loss_negative / batch_size  #这里的loss_negative是0吗？ 
 
-        return loss_dict, labels, batch_lines, batch_scores, output, features, mask
+        return loss_dict, labels, output
 
     def proposal_lines(self, md_maps, dis_maps, residual_maps, scale):
         """
