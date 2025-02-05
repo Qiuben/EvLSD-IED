@@ -252,9 +252,7 @@ class WireframeDetector(nn.Module):
         res_preds = output[:, 4:5].sigmoid()
         jloc_preds = output[:, 5:7].softmax(1)[:, 1:]
         joff_preds = output[:, 7:9].sigmoid() - 0.5
-
-        batch_lines = []
-        batch_scores = []
+        
         for i in range(batch_size):
             md_pred = md_preds[i]
             dis_pred = dis_preds[i]
@@ -328,9 +326,6 @@ class WireframeDetector(nn.Module):
             labels = torch.cat([labels.float(), meta['lpre_label']])
 
             scores = self.pooling(loi_feature, lines)
-            
-            batch_lines.append(lines)
-            batch_scores.append(scores.sigmoid())
 
             loss_ = self.loss(scores, labels) # labels是gt, scores是每个线propasal的得分
 
