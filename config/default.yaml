@@ -78,28 +78,3 @@ dim_loi: 128
 dim_fc: 1024
 use_residual: True
 
-# Homography adaptation configuration
-homography_adaptation:
-    num_iter: 10
-    valid_border_margin: 0
-    min_counts: 30
-    homographies:
-        translation: True
-        rotation: True
-        scaling: False
-        perspective: False
-        scaling_amplitude: 0.5
-        perspective_amplitude_x: 0.2
-        perspective_amplitude_y: 0.2
-        allow_artifacts: True
-        patch_ratio: 0.85
-
-# SSL configuration
-consistency_rampup: 6 #0.1 0.5  1  2  4
-ema_decay: 0.999
-
-# export pseudo label
-pseudo_label_threshod: 0.9
-# export homo_augmented label
-export_threshold: 0.94
-export_threshold_homo : 0.85
