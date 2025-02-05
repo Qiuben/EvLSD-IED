@@ -55,7 +55,7 @@ modal: event
 # Backbone
 backbone: stacked_hourglass
 depth: 4
-num_stacks: 1 #original  2
+num_stacks: 2
 num_blocks: 1
 inplanes: 64
 num_feats: 256
