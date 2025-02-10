@@ -21,15 +21,6 @@ def parse():
     
     parser.add_argument('--config_path', type=str, default='config', help='config path')
     parser.add_argument('--config_file', type=str, default='default.yaml', help='config filename')
-
-    # Mean Teacher config
-    parser.add_argument('--consistency', default=None, type=float, metavar='WEIGHT',
-                        help='use consistency loss with given weight (default: None)')
-     # ablation study
-    parser.add_argument('-thre', '--pseudo_label_threshod', type=float, default=0.9, help='config filename')
-    parser.add_argument('-thre_ori', '--export_threshold', type=float, default=0.9, help='config filename')
-    parser.add_argument('-thre_homo', '--export_threshold_homo', type=float, default=0.9, help='config filename')
-
     args = parser.parse_args()
     args_dict = vars(args)
     args_list = []
